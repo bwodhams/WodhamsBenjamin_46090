@@ -9,27 +9,27 @@ CND_DISTDIR=dist
 # Default configuration
 CND_PLATFORM_Default=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Default=dist/Default/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Default=gaddis_6thed_chap2_number2
-CND_ARTIFACT_PATH_Default=dist/Default/Cygwin_4.x-Windows/gaddis_6thed_chap2_number2
+CND_ARTIFACT_NAME_Default=gaddis_6thed_chap2_progchallenges_number2
+CND_ARTIFACT_PATH_Default=dist/Default/Cygwin_4.x-Windows/gaddis_6thed_chap2_progchallenges_number2
 CND_PACKAGE_DIR_Default=dist/Default/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Default=gaddis6thedchap2number2.tar
-CND_PACKAGE_PATH_Default=dist/Default/Cygwin_4.x-Windows/package/gaddis6thedchap2number2.tar
+CND_PACKAGE_NAME_Default=gaddis6thedchap2progchallengesnumber2.tar
+CND_PACKAGE_PATH_Default=dist/Default/Cygwin_4.x-Windows/package/gaddis6thedchap2progchallengesnumber2.tar
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=gaddis_6thed_chap2_number2
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_6thed_chap2_number2
+CND_ARTIFACT_NAME_Debug=gaddis_6thed_chap2_progchallenges_number2
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_6thed_chap2_progchallenges_number2
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=gaddis6thedchap2number2.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis6thedchap2number2.tar
+CND_PACKAGE_NAME_Debug=gaddis6thedchap2progchallengesnumber2.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis6thedchap2progchallengesnumber2.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=gaddis_6thed_chap2_number2
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_6thed_chap2_number2
+CND_ARTIFACT_NAME_Release=gaddis_6thed_chap2_progchallenges_number2
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_6thed_chap2_progchallenges_number2
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=gaddis6thedchap2number2.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis6thedchap2number2.tar
+CND_PACKAGE_NAME_Release=gaddis6thedchap2progchallengesnumber2.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis6thedchap2progchallengesnumber2.tar
 #
 # include compiler specific variables
 #
