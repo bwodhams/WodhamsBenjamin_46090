@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     int month; // Month of the year
     int day; // Day of the month
     int year; // Year
-    int mult;
+    int mult; // Multiplication of month and day
     
     
     //User Input
