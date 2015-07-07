@@ -2,7 +2,7 @@
  * File:   main.cpp
  * Author: Benjamin Wodhams
  * Created on July 1, 2015, 11:04 AM
- * Purpose : Monthly Payments
+ * Purpose : PI
  */
 
 #include <iostream>
