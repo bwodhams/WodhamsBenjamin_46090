@@ -84,19 +84,18 @@ int main(int argc, char** argv) {
          "Queen of Spades",
          "King of Spades"
         };
-    
     int crdValu[52]={1,2,3,4,5,6,7,8,9,10,10,10,10,1,2,3,4,5,6,7,8,9,10,10,10,10,
                      1,2,3,4,5,6,7,8,9,10,10,10,10,1,2,3,4,5,6,7,8,9,10,10,10,10
                     }; 
     int aceCard[4]={0,13,26,39};
-    
     int n=52;
     int outCard[n]={};
-    int dltCard=26;
+    int dltCard=outCard[crdValu[n]];
     int aceDlt[4]={-1,-1,-1,-1};
-    int aceInp=0;
+    int aceInp=-1;
     int count=0;
     int aceNum=-1;
+    char ready;
     
     
     //Introduce user to the game
@@ -118,10 +117,20 @@ int main(int argc, char** argv) {
           "    ////        Queen = 10              ////\n"
           "    ////         King = 10              ////\n"
           "    ////////////////////////////////////////\n"<<endl;
-    cout<<"Good luck, and may the odds be ever in your favor!"<<endl;
+    cout<<"Are you ready to play a game? Y/N"<<endl;
+    cin>>ready;
+    cout<<endl;
     
-
-    //Output the results
+    if(ready=='Y' || ready=='y'){
+        cout<<"Good luck, and may the odds be ever in your favor!"<<endl;
+    }else{
+        cout<<"Sorry you don't want to play. Maybe another time!"<<endl;
+        return 0;
+    }
+    
+    
+    
+    //Initialize Function genCard in main
     genCard(outCard, n);
 
     
@@ -143,7 +152,7 @@ int main(int argc, char** argv) {
     }
     count=0;
     aceNum=-1;
-    do{
+    while(aceInp==0 && count<4){
         for(int i=3; i>=0; i--)
         {   count++;
             if(aceDlt[i]!= -1)
@@ -154,9 +163,9 @@ int main(int argc, char** argv) {
             
             }
         }
-      }while(aceInp==0 && count<4);
+    }
               
-        while(aceInp!=11 && aceInp!=1){
+        while(aceInp!=11 && aceInp!=1 && aceInp!=-1){
             cout<<"Please input either 1 or 11"<<endl;
             cin>>aceInp;
         }
@@ -168,7 +177,7 @@ int main(int argc, char** argv) {
 
 
 
-
+    cout<<outCard[1]<<"and"<<crdValu[outCard[1]]<<"   "<<fceCard[outCard[1]]<<endl;
 
 
     //Exit stage right!
