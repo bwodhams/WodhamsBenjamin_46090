@@ -94,11 +94,11 @@ int main(int argc, char** argv) {
     
     int n=52;
     int outCard[n]={};
-    int dltCard=0;
-    int ace1st=0, ace2nd=0, ace3rd=0, ace4th=0;
+    int dltCard=26;
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=0;
     int count=0;
+    int aceNum=-1;
     
     
     //Introduce user to the game
@@ -190,15 +190,29 @@ int main(int argc, char** argv) {
         }
     }
     count=0;
+    aceNum=-1;
     do{
         for(int i=3; i>=0; i--)
-        {
-            if(aceCard[i]!= -1)
-            {cout<<"What value would you like to use for your "<<fceCard[aceCard[i]]<<", (1 or 11)"<<endl;
-             count++;
+        {   count++;
+        cout<<aceDlt[i]<<endl;
+            if(aceDlt[i]!= -1)
+            {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
+            count=4;
+            aceNum=aceDlt[i];
+            cin>>aceInp;
+            
             }
         }
       }while(aceInp==0 && count<4);
+      
+      do{          
+              cout<<"Please input either 1 or 11"<<endl;
+              cin>>aceInp;
+        }while(aceInp!=1 && aceInp!=11);
+        
+        if(aceInp==11){
+            crdValu=11;
+        }
 
 
 
