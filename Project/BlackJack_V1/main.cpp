@@ -29,9 +29,7 @@ int main(int argc, char** argv) {
     
 
     //Declare Variables
-    //int card[52];
-    //int x; 
-    //char ready; //Ask user if they are ready to play
+        //Value of cards in English
     string fceCard[52]=
         {"Ace of Clubs",
          "2 of Clubs",
@@ -122,56 +120,10 @@ int main(int argc, char** argv) {
           "    ////////////////////////////////////////\n"<<endl;
     cout<<"Good luck, and may the odds be ever in your favor!"<<endl;
     
-//    for(int i=0; i<52; i++){
-//        card[i]=rand()%52+1;
-//        cout<<card[i]<<endl;
-//    }
-    
-    cout<<endl<<endl<<endl;
-    //cout<<card[i]<<endl;
-    //getCard(drawCrd)
-    //cout<<x<<endl;
-    
-    //x=rand()%52+1;
-    
-    //cout<<x<<endl;
-    //Ask user if they are ready to play
-    
-    
-    
-
-    
-
-
-
 
     //Output the results
     genCard(outCard, n);
-    
-//    cout<<"New table"<<endl;
-//    for(int l=0; l<n; ++l){
-//        cout<<outCard[l]<<endl;
-//    }
-    
-    //cout<<num[n]<<endl;
-    
-//    cout<<"Specific number 1"<<endl;
-//    cout<<outCard[0]<<endl;
-//    
-//    cout<<"Specific number 15"<<endl;
-//    cout<<outCard[15]<<endl;
-//    
-//    cout<<"Specific number 50"<<endl;
-//    cout<<outCard[49]<<endl;
-    
-    //cout<<"Ace of clubs"<<"Value: "<<outCard[1]+outCard[2]<<endl;
-    
-    //for(int i=0; i<52; i++)
-        //cout<<fceCard[i]<<" With Value: "<<crdValu[i]<<endl;
-//    cout<<fceCard[aceCard[0]]<<endl;
-//    cout<<fceCard[aceCard[1]]<<endl;
-//    cout<<fceCard[aceCard[2]]<<endl;
-//    cout<<fceCard[aceCard[3]]<<endl;
+
     
     for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
@@ -194,7 +146,6 @@ int main(int argc, char** argv) {
     do{
         for(int i=3; i>=0; i--)
         {   count++;
-        cout<<aceDlt[i]<<endl;
             if(aceDlt[i]!= -1)
             {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
             count=4;
@@ -204,7 +155,6 @@ int main(int argc, char** argv) {
             }
         }
       }while(aceInp==0 && count<4);
-      cout<<aceInp<<endl;
               
         while(aceInp!=11 && aceInp!=1){
             cout<<"Please input either 1 or 11"<<endl;
@@ -214,11 +164,6 @@ int main(int argc, char** argv) {
         if(aceInp==11){
             crdValu[aceNum]=11;
         }
-    cout<<"Check ace values"<<endl;
-    for(int i=0; i<4; i++){
-        
-        cout<<crdValu[aceCard[i]]<<endl;
-    }
    
 
 
