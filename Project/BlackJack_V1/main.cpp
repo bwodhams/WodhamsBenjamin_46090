@@ -204,15 +204,22 @@ int main(int argc, char** argv) {
             }
         }
       }while(aceInp==0 && count<4);
-      
-      do{          
-              cout<<"Please input either 1 or 11"<<endl;
-              cin>>aceInp;
-        }while(aceInp!=1 && aceInp!=11);
+      cout<<aceInp<<endl;
+              
+        while(aceInp!=11 && aceInp!=1){
+            cout<<"Please input either 1 or 11"<<endl;
+            cin>>aceInp;
+        }
         
         if(aceInp==11){
-            crdValu=11;
+            crdValu[aceNum]=11;
         }
+    cout<<"Check ace values"<<endl;
+    for(int i=0; i<4; i++){
+        
+        cout<<crdValu[aceCard[i]]<<endl;
+    }
+   
 
 
 
