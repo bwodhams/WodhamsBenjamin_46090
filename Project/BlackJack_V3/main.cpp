@@ -108,7 +108,7 @@ int main(int argc, char** argv) {
     int playSum;
     int playCrd[n]={};
     int dealCrd[n]={};
-    int dltCard=playCrd[outCard[aceCard[n]]];
+    int dltCard=playCrd[n];
     
     
     //Introduce user to the game
@@ -162,13 +162,15 @@ int main(int argc, char** argv) {
     for(int i=4; i<=52; i++){
         cin>>hitStay;
         cout<<endl;
+        for(int k=0; k<n; ++k){
+        playCrd[k]=outCard[k];
+        }
         if(hitStay=='H' || hitStay== 'h'){
             cout<<"You requested another card, here is your card."<<endl;
             cout<<setw(20)<<fceCard[outCard[i]]<<setw(15)<<"("<<crdValu[outCard[i]]<<") points"<<endl;
             cout<<endl;
             cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
-            playCrd[i]=crdValu[outCard[i]];
             count1++;
             
         }else if(hitStay =='S' || hitStay=='s'){
@@ -236,9 +238,9 @@ int main(int argc, char** argv) {
      }if(dealSum>=17){
         cout<<"Dealer will stay."<<endl;
      }
-    
-   
-cout<<playCrd[crdValu[outCard[n]]]<<" <-------- playCard array"<<endl;
+    cout<<endl;
+    cout<<"Dealer's second card"<<endl;
+    cout<<fceCard[outCard[3]]<<setw(2)<<"    ("<<crdValu[outCard[3]]<<") points"<<endl;
 
 
     //Exit stage right!
