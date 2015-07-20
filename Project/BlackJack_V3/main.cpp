@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Benjamin Wodhams
- * Created on July 19, 2015, 4:50 PM
+ * Created on July 19, 2015, 6:54 PM
  * Purpose: BlackJack V_2
  */
 //System Libraries
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     int outCard[n]={};
-    int dltCard=-1;
+    int dltCard=13;
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
@@ -147,6 +147,9 @@ int main(int argc, char** argv) {
     //Initialize Player Sum
     playSum=(crdValu[outCard[1]]+crdValu[outCard[3]]);
     
+    //Initialize Dealer Sum
+    dealSum=(crdValu[outCard[2]]+crdValu[outCard[4]]);
+    
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
     for(int i=5; i<=52; i++){
         cin>>hitStay;
@@ -162,9 +165,6 @@ int main(int argc, char** argv) {
             cout<<playSum<<" points"<<endl;
         }
     }
-   
-
-    
     for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
@@ -175,9 +175,7 @@ int main(int argc, char** argv) {
                      aceDlt[2]=dltCard;
             }else if(aceDlt[3]==-1){
                      aceDlt[3]=dltCard;
-            }
-            
-            
+            } 
             
         }
     }
