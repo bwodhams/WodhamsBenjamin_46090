@@ -108,7 +108,7 @@ int main(int argc, char** argv) {
     int playSum;
     int playCrd[n]={};
     int dealCrd[n]={};
-    int dltCard=playCrd[n];
+    int dltCard=0;
     
     
     //Introduce user to the game
@@ -160,10 +160,11 @@ int main(int argc, char** argv) {
     
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
     for(int i=4; i<=52; i++){
+        dltCard=crdValu[outCard[i]];
         cin>>hitStay;
         cout<<endl;
         for(int k=0; k<n; ++k){
-        playCrd[k]=outCard[k];
+        playCrd[k]=crdValu[outCard[k]];
         }
         if(hitStay=='H' || hitStay== 'h'){
             cout<<"You requested another card, here is your card."<<endl;
@@ -175,52 +176,76 @@ int main(int argc, char** argv) {
             
         }else if(hitStay =='S' || hitStay=='s'){
             cout<<"You have requested to stay."<<endl;
-               for(int i=0; i<4; i++){
-        if(dltCard==aceCard[i]){
-            if(aceDlt[0]==-1){
-               aceDlt[0]=dltCard;
-               aceInp=0;
-            }else if(aceDlt[1]==-1){
-                     aceDlt[1]=dltCard;
-                     aceInp=0;
-            }else if(aceDlt[2]==-1){
-                     aceDlt[2]=dltCard;
-                     aceInp=0;
-            }else if(aceDlt[3]==-1){
-                     aceDlt[3]=dltCard;
-                     aceInp=0;
-            } 
-            
-        }
-    }
-            
-    count=0;
-    aceNum=-1;
-    while(aceInp==0 && count<4){
-        for(int i=3; i>=0; i--)
-        {   count++;
-            if(aceDlt[i]!= -1)
-            {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
-            count=4;
-            aceNum=aceDlt[i];
-            cin>>aceInp;
-            
-            }
-        }
-    }
-              
-        while(aceInp!=11 && aceInp!=1 && aceInp!=-1){
-            cout<<"Please input either 1 or 11"<<endl;
-            cin>>aceInp;
-        }
-        
-        if(aceInp==11){
-            crdValu[aceNum]=11;
-        }
             break;
+            
         }
+//        for(i=0; i<=52; i++){
+//            if(crdValu[playCrd[i]]==0){
+//                cout<<"You got an Ace of Spades!"<<endl;
+//            }
+//            if(crdValu[playCrd[i]]==13){
+//                cout<<"You got an Ace of Hearts!"<<endl;
+//            }
+//            if(crdValu[playCrd[i]]==26){
+//                cout<<"You got an Ace of Diamonds!"<<endl;
+//            }
+//            if(crdValu[playCrd[i]]==39){
+//                cout<<"You got an Ace of Clubs!"<<endl;
+//            }
+//            }
+               
+        
+        
+        
+        
+        
+        
+        
+//        for(int i=0; i<4; i++){
+//        if(dltCard==1){
+//            if(aceDlt[0]==-1){
+//               aceDlt[0]=dltCard;
+//               aceInp=0;
+//            }else if(aceDlt[1]==-1){
+//                     aceDlt[1]=dltCard;
+//                     aceInp=0;
+//            }else if(aceDlt[2]==-1){
+//                     aceDlt[2]=dltCard;
+//                     aceInp=0;
+//            }else if(aceDlt[3]==-1){
+//                     aceDlt[3]=dltCard;
+//                     aceInp=0;
+//            } 
+//            
+//        }
+//            
+//    count=0;
+//    aceNum=-1;
+//    while(aceInp==0 && count<4){
+//        for(int i=3; i>=0; i--)
+//        {   count++;
+//            if(aceDlt[i]!= -1)
+//            {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
+//            count=4;
+//            aceNum=aceDlt[i];
+//            cin>>aceInp;
+//            
+//            }
+//        }
+//    }
+//              
+//        while(aceInp!=11 && aceInp!=1 && aceInp!=-1){
+//            cout<<"Please input either 1 or 11"<<endl;
+//            cin>>aceInp;
+//        }
+//        
+//        if(aceInp==11){
+//            crdValu[aceNum]=11;
+//        }
+//            break;
+//        }      
     }
- 
+        
     int z=count1;
     
         
@@ -241,6 +266,7 @@ int main(int argc, char** argv) {
     cout<<endl;
     cout<<"Dealer's second card"<<endl;
     cout<<fceCard[outCard[3]]<<setw(2)<<"    ("<<crdValu[outCard[3]]<<") points"<<endl;
+   
 
 
     //Exit stage right!
