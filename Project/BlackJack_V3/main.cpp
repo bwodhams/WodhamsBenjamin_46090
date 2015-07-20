@@ -99,6 +99,7 @@ int main(int argc, char** argv) {
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
+    int count1=4;
     int aceNum=-1;
     char ready;
     bool gmOver=false;
@@ -148,7 +149,7 @@ int main(int argc, char** argv) {
     
     cout<<"           Player           "<<"                                        Dealer        "<<endl;
     cout<<setw(20)<<fceCard[outCard[0]]<<setw(15)<<"("<<crdValu[outCard[0]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[1]]<<setw(2)<<"    ("<<crdValu[outCard[1]]<<") points"<<endl;
-    cout<<setw(20)<<fceCard[outCard[2]]<<setw(15)<<"("<<crdValu[outCard[2]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
+    cout<<setw(20)<<fceCard[outCard[2]]<<setw(15)<<"("<<crdValu[outCard[2]]<<") points"<<"              "<<setw(4)<<"Hidden"<<endl;
     
     
     //Initialize Player Sum
@@ -167,10 +168,26 @@ int main(int argc, char** argv) {
             cout<<endl;
             cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
+            count1++;
         }else if(hitStay =='S' || hitStay=='s'){
             cout<<"Here is the sum of your cards"<<endl;
             cout<<playSum<<" points"<<endl;
+            break;
         }
+    }
+    int z=count1;
+    if(dealSum<=16){
+        
+    while(dealSum<=16)
+     {
+        for(z; z<=52; z++){
+            cout<<"Dealer has drawn another card."<<endl;
+            cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;   
+        }
+        
+     }
+    }else if(dealSum>=17){
+        cout<<"Dealer will stay."<<endl;
     }
     for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
@@ -246,7 +263,6 @@ void genCard(int outCard[], int n){
     }
     for(int k=0; k<n; ++k){
         outCard[k]=p[k];
-        //cout<<outCard[k]<<endl;
       
     }
 }
