@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     int outCard[n]={};
-    int dltCard=0;
+    int dltCard=crdValu[outCard[n]];
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
@@ -170,28 +170,7 @@ int main(int argc, char** argv) {
             playSum+=crdValu[outCard[i]];
             count1++;
         }else if(hitStay =='S' || hitStay=='s'){
-            break;
-        }
-    }
-    cout<<fceCard[outCard[3]]<<"    "<<crdValu[outCard[3]]<<endl;
-    int z=count1;
-    
-        
-    while(dealSum<=16)
-     {
-        for(z; z<=52;z++){
-            cout<<"Dealer has drawn another card."<<endl;
-            cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;
-            dealSum+=crdValu[outCard[z]];
-            if(dealSum>=17){
-                break;
-            }
-        }
-        
-     }if(dealSum>=17){
-        cout<<"Dealer will stay."<<endl;
-     }
-    for(int i=0; i<4; i++){
+               for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
                aceDlt[0]=dltCard;
@@ -228,6 +207,28 @@ int main(int argc, char** argv) {
         if(aceInp==11){
             crdValu[aceNum]=11;
         }
+            break;
+        }
+    }
+ 
+    int z=count1;
+    
+        
+    while(dealSum<=16)
+     {
+        for(z; z<=52;z++){
+            cout<<"Dealer has drawn another card."<<endl;
+            cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;
+            dealSum+=crdValu[outCard[z]];
+            if(dealSum>=17){
+                break;
+            }
+        }
+        
+     }if(dealSum>=17){
+        cout<<"Dealer will stay."<<endl;
+     }
+    
    
 
 
