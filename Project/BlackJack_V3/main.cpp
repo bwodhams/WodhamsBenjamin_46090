@@ -170,25 +170,27 @@ int main(int argc, char** argv) {
             playSum+=crdValu[outCard[i]];
             count1++;
         }else if(hitStay =='S' || hitStay=='s'){
-            cout<<"Here is the sum of your cards"<<endl;
-            cout<<playSum<<" points"<<endl;
             break;
         }
     }
+    cout<<fceCard[outCard[3]]<<"    "<<crdValu[outCard[3]]<<endl;
     int z=count1;
-    if(dealSum<=16){
+    
         
     while(dealSum<=16)
      {
-        for(z; z<=52; z++){
+        for(z; z<=52;z++){
             cout<<"Dealer has drawn another card."<<endl;
-            cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;   
+            cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;
+            dealSum+=crdValu[outCard[z]];
+            if(dealSum>=17){
+                break;
+            }
         }
         
-     }
-    }else if(dealSum>=17){
+     }if(dealSum>=17){
         cout<<"Dealer will stay."<<endl;
-    }
+     }
     for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
