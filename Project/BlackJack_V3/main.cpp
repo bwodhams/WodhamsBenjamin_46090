@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
     int n=52;
     int outCard[n]={};
     int aceDlt[4]={-1,-1,-1,-1};
-    int aceInp=-1;
+    int aceInp=1;
     int count=0;
     int count1=4;
     int aceNum=-1;
@@ -106,9 +106,11 @@ int main(int argc, char** argv) {
     char hitStay;
     int dealSum;
     int playSum;
+    int pCCount=0;
+    int dCCount=0;
     int playCrd[n]={};
     int dealCrd[n]={};
-    int dltCard=0;
+    int dltCard=-1;
     
     
     //Introduce user to the game
@@ -145,28 +147,47 @@ int main(int argc, char** argv) {
     //Initialize Function genCard in main
     genCard(outCard, n);
     
+    //Pupulate Player Card
+   
+      
     //Give initial cards to Player and Dealer
+    pCCount=0;
+    dCCount=0;
     
-    cout<<"           Player           "<<"                                        Dealer        "<<endl;
-    cout<<setw(20)<<fceCard[outCard[0]]<<setw(15)<<"("<<crdValu[outCard[0]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[1]]<<setw(2)<<"    ("<<crdValu[outCard[1]]<<") points"<<endl;
-    cout<<setw(20)<<fceCard[outCard[2]]<<setw(15)<<"("<<crdValu[outCard[2]]<<") points"<<"              "<<setw(4)<<"Hidden"<<endl;
+    playCrd[pCCount]=outCard[0];
+    dealCrd[dCCount]=outCard[1];
+    pCCount++;
+    playCrd[pCCount]=outCard[2];
+    dCCount++;
+    dealCrd[dCCount]=outCard[3];
+    cout<<"           Player           "<<endl;
+    cout<<setw(20)<<fceCard[playCrd[0]]<<setw(15)<<"("<<crdValu[playCrd[0]]<<") points"<<endl;
+    
+    cout<<setw(20)<<fceCard[playCrd[1]]<<setw(15)<<"("<<crdValu[playCrd[1]]<<") points"<<endl;
+    
+    cout<<endl<<endl;
+    
+    cout<<"           Dealer        "<<endl;
+    cout<<setw(20)<<fceCard[dealCrd[0]]<<setw(15)<<"    ("<<crdValu[dealCrd[0]]<<") points"<<endl;
+    
+    cout<<setw(20)<<"Hidden"<<endl;
+    cout<<endl<<endl;
     
     
     //Initialize Player Sum
-    playSum=(crdValu[outCard[0]]+crdValu[outCard[2]]);
+    playSum=(crdValu[playCrd[0]]+crdValu[playCrd[1]]);
     
     //Initialize Dealer Sum
-    dealSum=(crdValu[outCard[1]]+crdValu[outCard[3]]);
+    dealSum=(crdValu[dealCrd[0]]+crdValu[dealCrd[1]]);
     
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
     for(int i=4; i<=52; i++){
-        dltCard=crdValu[outCard[i]];
         cin>>hitStay;
         cout<<endl;
-        for(int k=0; k<n; ++k){
-        playCrd[k]=crdValu[outCard[k]];
-        }
+        
         if(hitStay=='H' || hitStay== 'h'){
+            pCCount++;
+            playCrd[pCCount]=outCard[i];
             cout<<"You requested another card, here is your card."<<endl;
             cout<<setw(20)<<fceCard[outCard[i]]<<setw(15)<<"("<<crdValu[outCard[i]]<<") points"<<endl;
             cout<<endl;
@@ -179,6 +200,7 @@ int main(int argc, char** argv) {
             break;
             
         }
+    }
 //        for(i=0; i<=52; i++){
 //            if(crdValu[playCrd[i]]==0){
 //                cout<<"You got an Ace of Spades!"<<endl;
@@ -200,8 +222,14 @@ int main(int argc, char** argv) {
         
         
         
+ //Loop through player's cards.
+for(int iPcard=0; iPcard<=pCCount; iPcard++){
+    dltCard=playCrd[iPcard];
         
-for(int i=0; i<4; i++){
+    
+ //Loop through Ace Cards
+    
+    for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
                aceDlt[0]=dltCard;
@@ -217,8 +245,13 @@ for(int i=0; i<4; i++){
             
         }
     }
+        
+}
+    cout<<endl;
     count=0;
     aceNum=-1;
+    
+    
     do{
         for(int i=3; i>=0; i--)
         {   count++;
@@ -239,9 +272,10 @@ for(int i=0; i<4; i++){
         
         if(aceInp==11){
             crdValu[aceNum]=11;
+            playSum+=10;
         }
-    break;
-    }
+
+    
         
     int z=count1;
     
@@ -260,6 +294,8 @@ for(int i=0; i<4; i++){
      }if(dealSum>=17){
         cout<<"Dealer will stay."<<endl;
      }
+    
+    cout<<"Your cards total : "<<playSum<<" points."<<"          The dealer's cards total : "<<dealSum<<" points."<<endl;
     cout<<endl;
     cout<<"Dealer's second card"<<endl;
     cout<<fceCard[outCard[3]]<<setw(2)<<"    ("<<crdValu[outCard[3]]<<") points"<<endl;
