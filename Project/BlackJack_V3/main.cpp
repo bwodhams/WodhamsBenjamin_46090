@@ -201,49 +201,46 @@ int main(int argc, char** argv) {
         
         
         
-//        for(int i=0; i<4; i++){
-//        if(dltCard==1){
-//            if(aceDlt[0]==-1){
-//               aceDlt[0]=dltCard;
-//               aceInp=0;
-//            }else if(aceDlt[1]==-1){
-//                     aceDlt[1]=dltCard;
-//                     aceInp=0;
-//            }else if(aceDlt[2]==-1){
-//                     aceDlt[2]=dltCard;
-//                     aceInp=0;
-//            }else if(aceDlt[3]==-1){
-//                     aceDlt[3]=dltCard;
-//                     aceInp=0;
-//            } 
-//            
-//        }
-//            
-//    count=0;
-//    aceNum=-1;
-//    while(aceInp==0 && count<4){
-//        for(int i=3; i>=0; i--)
-//        {   count++;
-//            if(aceDlt[i]!= -1)
-//            {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
-//            count=4;
-//            aceNum=aceDlt[i];
-//            cin>>aceInp;
-//            
-//            }
-//        }
-//    }
-//              
-//        while(aceInp!=11 && aceInp!=1 && aceInp!=-1){
-//            cout<<"Please input either 1 or 11"<<endl;
-//            cin>>aceInp;
-//        }
-//        
-//        if(aceInp==11){
-//            crdValu[aceNum]=11;
-//        }
-//            break;
-//        }      
+for(int i=0; i<4; i++){
+        if(dltCard==aceCard[i]){
+            if(aceDlt[0]==-1){
+               aceDlt[0]=dltCard;
+            }else if(aceDlt[1]==-1){
+                     aceDlt[1]=dltCard;
+            }else if(aceDlt[2]==-1){
+                     aceDlt[2]=dltCard;
+            }else if(aceDlt[3]==-1){
+                     aceDlt[3]=dltCard;
+            }
+            
+            
+            
+        }
+    }
+    count=0;
+    aceNum=-1;
+    do{
+        for(int i=3; i>=0; i--)
+        {   count++;
+            if(aceDlt[i]!= -1)
+            {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
+            count=4;
+            aceNum=aceDlt[i];
+            cin>>aceInp;
+            
+            }
+        }
+      }while(aceInp==0 && count<4);
+              
+        while(aceInp!=11 && aceInp!=1){
+            cout<<"Please input either 1 or 11"<<endl;
+            cin>>aceInp;
+        }
+        
+        if(aceInp==11){
+            crdValu[aceNum]=11;
+        }
+    break;
     }
         
     int z=count1;
