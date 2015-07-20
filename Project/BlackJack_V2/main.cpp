@@ -98,6 +98,7 @@ int main(int argc, char** argv) {
     char ready;
     bool gmOver=false;
     int crdCnt=0;
+    char hitStay;
     
     
     //Introduce user to the game
@@ -129,18 +130,19 @@ int main(int argc, char** argv) {
         cout<<"Sorry you don't want to play. Maybe another time!"<<endl;
         return 0;
     }
+    cout<<endl<<endl;
     
-    
-    cout<<fceCard[outCard[1]]<<" valued at "<<crdValu[outCard[1]]<<" points"<<endl;
     //Initialize Function genCard in main
     genCard(outCard, n);
     
-//    while(!gmOver){
-//        for(int i=0; i<52; i++){
-//            cout<<outCard[i]<<endl;
-//        }
-//    }
-    cout<<fceCard[outCard[1]]<<" valued at "<<crdValu[outCard[1]]<<" points"<<endl;
+    //Give initial cards to Player and Dealer
+    
+    cout<<"Player           "<<"                        Dealer        "<<endl;
+    cout<<setw(2)<<fceCard[outCard[1]]<<"    ("<<crdValu[outCard[1]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[2]]<<"    ("<<crdValu[outCard[2]]<<") points"<<endl;
+    cout<<setw(2)<<fceCard[outCard[3]]<<"    ("<<crdValu[outCard[3]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
+    
+    cout<<"Would you like to Hit or Stay?  H/S"<<endl;
+    cin>>hitStay;
 
     
     for(int i=0; i<4; i++){
@@ -184,9 +186,6 @@ int main(int argc, char** argv) {
         }
    
 
-
-
-    cout<<outCard[1]<<"and"<<crdValu[outCard[1]]<<"   "<<fceCard[outCard[1]]<<endl;
 
 
     //Exit stage right!
