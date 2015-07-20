@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     int outCard[n]={};
-    int dltCard=13;
+    int dltCard=0;
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
@@ -101,6 +101,8 @@ int main(int argc, char** argv) {
     char hitStay;
     int dealSum;
     int playSum;
+    int playCrd[n]={};
+    int dealCrd[n]={};
     
     
     //Introduce user to the game
@@ -140,18 +142,18 @@ int main(int argc, char** argv) {
     //Give initial cards to Player and Dealer
     
     cout<<"           Player           "<<"                                        Dealer        "<<endl;
-    cout<<setw(20)<<fceCard[outCard[1]]<<setw(15)<<"("<<crdValu[outCard[1]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[2]]<<setw(2)<<"    ("<<crdValu[outCard[2]]<<") points"<<endl;
-    cout<<setw(20)<<fceCard[outCard[3]]<<setw(15)<<"("<<crdValu[outCard[3]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
+    cout<<setw(20)<<fceCard[outCard[0]]<<setw(15)<<"("<<crdValu[outCard[0]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[1]]<<setw(2)<<"    ("<<crdValu[outCard[1]]<<") points"<<endl;
+    cout<<setw(20)<<fceCard[outCard[2]]<<setw(15)<<"("<<crdValu[outCard[2]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
     
     
     //Initialize Player Sum
-    playSum=(crdValu[outCard[1]]+crdValu[outCard[3]]);
+    playSum=(crdValu[outCard[0]]+crdValu[outCard[2]]);
     
     //Initialize Dealer Sum
-    dealSum=(crdValu[outCard[2]]+crdValu[outCard[4]]);
+    dealSum=(crdValu[outCard[1]]+crdValu[outCard[3]]);
     
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
-    for(int i=5; i<=52; i++){
+    for(int i=4; i<=52; i++){
         cin>>hitStay;
         cout<<endl;
         if(hitStay=='H' || hitStay== 'h'){
