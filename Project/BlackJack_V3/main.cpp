@@ -95,7 +95,6 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     int outCard[n]={};
-    int dltCard=crdValu[outCard[n]];
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
@@ -109,6 +108,7 @@ int main(int argc, char** argv) {
     int playSum;
     int playCrd[n]={};
     int dealCrd[n]={};
+    int dltCard=playCrd[outCard[aceCard[n]]];
     
     
     //Introduce user to the game
@@ -168,22 +168,30 @@ int main(int argc, char** argv) {
             cout<<endl;
             cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
+            playCrd[i]=crdValu[outCard[i]];
             count1++;
+            
         }else if(hitStay =='S' || hitStay=='s'){
+            cout<<"You have requested to stay."<<endl;
                for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
                aceDlt[0]=dltCard;
+               aceInp=0;
             }else if(aceDlt[1]==-1){
                      aceDlt[1]=dltCard;
+                     aceInp=0;
             }else if(aceDlt[2]==-1){
                      aceDlt[2]=dltCard;
+                     aceInp=0;
             }else if(aceDlt[3]==-1){
                      aceDlt[3]=dltCard;
+                     aceInp=0;
             } 
             
         }
     }
+            
     count=0;
     aceNum=-1;
     while(aceInp==0 && count<4){
@@ -230,7 +238,7 @@ int main(int argc, char** argv) {
      }
     
    
-
+cout<<playCrd[crdValu[outCard[n]]]<<" <-------- playCard array"<<endl;
 
 
     //Exit stage right!

@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
     
     int n=52;
     int outCard[n]={};
-    int dltCard=26;
+    int dltCard=0;
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=0;
     int count=0;
