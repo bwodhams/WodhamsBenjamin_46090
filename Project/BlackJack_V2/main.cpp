@@ -137,12 +137,16 @@ int main(int argc, char** argv) {
     
     //Give initial cards to Player and Dealer
     
-    cout<<"Player           "<<"                        Dealer        "<<endl;
-    cout<<setw(2)<<fceCard[outCard[1]]<<"    ("<<crdValu[outCard[1]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[2]]<<"    ("<<crdValu[outCard[2]]<<") points"<<endl;
-    cout<<setw(2)<<fceCard[outCard[3]]<<"    ("<<crdValu[outCard[3]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
+    cout<<"           Player           "<<"                                        Dealer        "<<endl;
+    cout<<setw(20)<<fceCard[outCard[1]]<<setw(15)<<"("<<crdValu[outCard[1]]<<") points"<<"              "<<setw(3)<<fceCard[outCard[2]]<<setw(2)<<"    ("<<crdValu[outCard[2]]<<") points"<<endl;
+    cout<<setw(20)<<fceCard[outCard[3]]<<setw(15)<<"("<<crdValu[outCard[3]]<<") points"<<"              "<<setw(3)<<"Hidden"<<endl;
     
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
     cin>>hitStay;
+    
+    if(hitStay=='H' || hitStay== 'h'){
+        
+    }
 
     
     for(int i=0; i<4; i++){
