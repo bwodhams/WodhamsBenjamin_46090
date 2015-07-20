@@ -12,6 +12,11 @@
 
 using namespace std;
 
+
+//To do list : 
+        //Make two new arrays, one for players cards, and one for the dealer's cards.
+        //Make two ace checkers for each array
+        //
 //User Libraries
 
 //Global Constants
