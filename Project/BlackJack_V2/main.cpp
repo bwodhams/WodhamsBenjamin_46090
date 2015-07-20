@@ -90,12 +90,14 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     int outCard[n]={};
-    int dltCard=outCard[crdValu[n]];
+    int dltCard=-1;
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=-1;
     int count=0;
     int aceNum=-1;
     char ready;
+    bool gmOver=false;
+    int crdCnt=0;
     
     
     //Introduce user to the game
@@ -129,9 +131,16 @@ int main(int argc, char** argv) {
     }
     
     
-    
+    cout<<fceCard[outCard[1]]<<" valued at "<<crdValu[outCard[1]]<<" points"<<endl;
     //Initialize Function genCard in main
     genCard(outCard, n);
+    
+//    while(!gmOver){
+//        for(int i=0; i<52; i++){
+//            cout<<outCard[i]<<endl;
+//        }
+//    }
+    cout<<fceCard[outCard[1]]<<" valued at "<<crdValu[outCard[1]]<<" points"<<endl;
 
     
     for(int i=0; i<4; i++){
