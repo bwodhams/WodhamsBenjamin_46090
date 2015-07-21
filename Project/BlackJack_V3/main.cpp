@@ -97,6 +97,7 @@ int main(int argc, char** argv) {
     int outCard[n]={};
     int aceDlt[4]={-1,-1,-1,-1};
     int aceInp=1;
+    int aceInpD=1;
     int count=0;
     int count1=4;
     int aceNum=-1;
@@ -252,7 +253,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     aceNum=-1;
     
     
-    do{
+    while(aceInp==0 && count<4){
         for(int i=3; i>=0; i--)
         {   count++;
             if(aceDlt[i]!= -1)
@@ -263,7 +264,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
             
             }
         }
-      }while(aceInp==0 && count<4);
+    }  
               
         while(aceInp!=11 && aceInp!=1){
             cout<<"Please input either 1 or 11"<<endl;
@@ -282,23 +283,78 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         
     while(dealSum<=16)
      {
+        //Loop through dealer's cards.
+for(int iDcard=0; iDcard<=pCCount; iDcard++){
+    dltCard=dealCrd[iDcard];
+        
+    
+ //Loop through Ace Cards
+    
+    for(int i=0; i<4; i++){
+        if(dltCard==aceCard[i]){
+            if(aceDlt[0]==-1){
+               aceDlt[0]=dltCard;
+            }else if(aceDlt[1]==-1){
+                     aceDlt[1]=dltCard;
+            }else if(aceDlt[2]==-1){
+                     aceDlt[2]=dltCard;
+            }else if(aceDlt[3]==-1){
+                     aceDlt[3]=dltCard;
+            }
+            
+            
+            
+        }
+    }
+        
+}
+    cout<<endl;
+    count=0;
+    aceNum=-1;
+    
+    
+    while(aceInpD==0 && count<4){
+        for(int i=3; i>=0; i--)
+        {   count++;
+            if(aceDlt[i]!= -1)
+            {
+            count=4;
+            aceNum=aceDlt[i];
+            
+            }
+        }
+    }  
+        
+        if(dealSum<=16){
+            crdValu[aceNum]=11;
+            dealSum+=10;
+        }else if(dealSum>=17){
+            crdValu[aceNum]=1;
+        }
+    if(dealSum<=16){
         for(z; z<=52;z++){
             cout<<"Dealer has drawn another card."<<endl;
             cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;
+            cout<<endl;
             dealSum+=crdValu[outCard[z]];
-            if(dealSum>=17){
+        }
+    }else if(dealSum>=17){
                 break;
             }
-        }
-        
-     }if(dealSum>=17){
+        }if(dealSum>=17){
         cout<<"Dealer will stay."<<endl;
      }
-    
-    cout<<"Your cards total : "<<playSum<<" points."<<"          The dealer's cards total : "<<dealSum<<" points."<<endl;
+    cout<<setw(70)<<"The dealer's hidden card was : "<<fceCard[outCard[3]]<<endl;
+    cout<<endl<<endl;
+    cout<<"Your cards total : "<<playSum<<" points."<<setw(40)<<"The dealer's cards total : "<<dealSum<<" points."<<endl;
     cout<<endl;
-    cout<<"Dealer's second card"<<endl;
-    cout<<fceCard[outCard[3]]<<setw(2)<<"    ("<<crdValu[outCard[3]]<<") points"<<endl;
+    
+    if((playSum>dealSum) && playSum<=21){
+        if(playSum==21){
+            cout<<"Nicely done, you got blackjack!!  You win!"<<endl;
+        }
+        cout<<"Congrats, you have won the game!"
+    }
    
 
 
