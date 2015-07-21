@@ -202,27 +202,7 @@ int main(int argc, char** argv) {
             
         }
     }
-//        for(i=0; i<=52; i++){
-//            if(crdValu[playCrd[i]]==0){
-//                cout<<"You got an Ace of Spades!"<<endl;
-//            }
-//            if(crdValu[playCrd[i]]==13){
-//                cout<<"You got an Ace of Hearts!"<<endl;
-//            }
-//            if(crdValu[playCrd[i]]==26){
-//                cout<<"You got an Ace of Diamonds!"<<endl;
-//            }
-//            if(crdValu[playCrd[i]]==39){
-//                cout<<"You got an Ace of Clubs!"<<endl;
-//            }
-//            }
-               
-        
-        
-        
-        
-        
-        
+      
  //Loop through player's cards.
 for(int iPcard=0; iPcard<=pCCount; iPcard++){
     dltCard=playCrd[iPcard];
