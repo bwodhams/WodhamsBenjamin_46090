@@ -353,8 +353,15 @@ for(int iDcard=0; iDcard<=pCCount; iDcard++){
         if(playSum==21){
             cout<<"Nicely done, you got blackjack!!  You win!"<<endl;
         }
-        cout<<"Congrats, you have won the game!"
+        cout<<"Congrats, you have won the game!";
+    }else if((playSum<dealSum) && dealSum<=21){
+        if(dealSum==21){
+            cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time."<<endl;
+        }
+        cout<<"Nice try, but the dealer has won. Better luck next time."<<endl;
     }
+    
+    
    
 
 
