@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Benjamin Wodhams
- * Created on July 19, 2015, 6:54 PM
+ * Created on July 20, 2015, 8:50 PM
  * Purpose: BlackJack V_2
  */
 //System Libraries
