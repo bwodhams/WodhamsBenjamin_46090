@@ -12,11 +12,6 @@
 
 using namespace std;
 
-
-//To do list : 
-        //Make two new arrays, one for players cards, and one for the dealer's cards.
-        //Make two ace checkers for each array
-        //
 //User Libraries
 
 //Global Constants
@@ -29,7 +24,6 @@ void genCard(int [], int);
 
 
 int main(int argc, char** argv) {
-    //Set random seed
      
     
 
@@ -89,23 +83,35 @@ int main(int argc, char** argv) {
          "Queen of Spades",
          "King of Spades"
         };
+    //Value of each card
     int crdValu[52]={1,2,3,4,5,6,7,8,9,10,10,10,10,1,2,3,4,5,6,7,8,9,10,10,10,10,
                      1,2,3,4,5,6,7,8,9,10,10,10,10,1,2,3,4,5,6,7,8,9,10,10,10,10
                     }; 
+    //Indicate where each  ace is in the deck
     int aceCard[4]={0,13,26,39};
     int n=52;
+    //OutCard array that fills up with the output of genCard function
     int outCard[n]={};
+    //Initialize values for ace dealt. Use this to determine which ace is chosen
     int aceDlt[4]={-1,-1,-1,-1};
+    //Initialize value for aceInput which will active if player draws an Ace
     int aceInp=0;
+    //Initialize value for aceInput for dealer which will activate if dealer draws an ace
     int aceInpD=1;
     int count=0;
     int count1=4;
     int aceNum=-1;
+    //Char to determine if player is ready to play
     char ready;
+    //Determine if game is over
     bool gmOver=false;
+    //Count cards
     int crdCnt=0;
+    //Char to determine if player wants to hit or stay
     char hitStay;
+    //Calculate dealer's sum of all cards
     int dealSum;
+    //Calculate Player's sum of all cards
     int playSum;
     int pCCount=0;
     int dCCount=0;
@@ -148,8 +154,6 @@ int main(int argc, char** argv) {
     //Initialize Function genCard in main
     genCard(outCard, n);
     
-    //Pupulate Player Card
-   
       
     //Give initial cards to Player and Dealer
     pCCount=0;
@@ -181,6 +185,8 @@ int main(int argc, char** argv) {
     //Initialize Dealer Sum
     dealSum=(crdValu[dealCrd[0]]+crdValu[dealCrd[1]]);
     
+    
+    //Ask player if they want to hit or stay.
     cout<<"Would you like to Hit or Stay?  H/S"<<endl;
     for(int i=4; i<=52; i++){
         cin>>hitStay;
@@ -209,7 +215,6 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         
     
  //Loop through Ace Cards
-    
     for(int i=0; i<4; i++){
         if(dltCard==aceCard[i]){
             if(aceDlt[0]==-1){
@@ -232,7 +237,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     count=0;
     aceNum=-1;
     
-    
+    //If user has an Ace, ask what value they would like to make their ace
     while(aceInp==0 && count<4){
         for(int i=3; i>=0; i--)
         {   count++;
@@ -250,7 +255,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         }
         
     }
-        
+        //If user wants value of their ace to be 11, make it 11. If not, don't change anything.
         if(aceInp==11){
             crdValu[aceNum]=11;
             playSum+=10;
@@ -260,7 +265,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         
     int z=count1;
     
-        
+    //Calculate dealer's sum to determine if it will hit or stay    
     if(dealSum<=16){
         for(z; z<=52;z++){
             cout<<"Dealer has drawn another card."<<endl;
@@ -274,10 +279,12 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         }if(dealSum>=17){
         cout<<"Dealer will stay."<<endl;
      }
+    //Output dealer's hidden card as well as player and dealer total sum
     cout<<setw(70)<<"The dealer's hidden card was : "<<fceCard[outCard[3]]<<endl;
     cout<<endl<<endl;
     cout<<"Your cards total : "<<playSum<<" points."<<setw(40)<<"The dealer's cards total : "<<dealSum<<" points."<<endl;
     cout<<endl;
+    
     
     if(((playSum>dealSum) || dealSum>21) && playSum<=21){
         if(playSum==21){
@@ -317,10 +324,10 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
 
 /*******************************************************************************************************
  *******************************************************************************************************
- *******************************            Title
- ** Purpose:
- ** Input:
- ** Output:
+ *******************************            genCard
+ ** Purpose:Generate random list of the cards
+ ** Input:all 52 cards
+ ** Output: outCard
  *******************************************************************************************************
  */
 void genCard(int outCard[], int n){
@@ -329,6 +336,7 @@ void genCard(int outCard[], int n){
     42,43,44,45,46,47,48,49,50,51,52}; //Create the 52 cards in the deck
     
     outCard[52] = {};
+    //Set random seed
     srand(static_cast<unsigned int>(time(0)));
     //Shuffle the deck
     for(int i=52; i>0; --i){
