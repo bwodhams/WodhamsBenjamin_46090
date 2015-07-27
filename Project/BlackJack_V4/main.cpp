@@ -25,7 +25,7 @@ void genCard(int [], int);
 
 int main(int argc, char** argv) {
      
-    
+    srand(static_cast<unsigned int>(time(0)));
 
     //Declare Variables
         //Value of cards in English
@@ -337,7 +337,7 @@ void genCard(int outCard[], int n){
     
     outCard[52] = {};
     //Set random seed
-    srand(static_cast<unsigned int>(time(0)));
+    
     //Shuffle the deck
     for(int i=52; i>0; --i){
         
