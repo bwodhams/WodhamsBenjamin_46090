@@ -118,6 +118,8 @@ int main(int argc, char** argv) {
     int playCrd[n]={};
     int dealCrd[n]={};
     int dltCard=-1;
+    int money=1000; //Starting balance
+    int bet; //Bet amount
     
     
     
@@ -151,6 +153,11 @@ int main(int argc, char** argv) {
         return 0;
     }
     cout<<endl<<endl;
+    
+    cout<<"Your starting balance is: $"<<money<<endl;
+    cout<<"How much money would you like to bet?"<<endl;
+    cin>>bet;
+    
     
     //Initialize Function genCard in main
     genCard(outCard, n);
@@ -289,20 +296,20 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     
     if(((playSum>dealSum) || dealSum>21) && playSum<=21){
         if(playSum==21){
-            cout<<"Nicely done, you got blackjack!!  You win!"<<endl;
+            cout<<"Nicely done, you got blackjack!!  You win $"<<bet*2<<" !!"<<endl;
         }else
-        cout<<"Congrats, you have won the game!"<<endl;
+        cout<<"Congrats, you have won the game! You win $"<<bet*2<<" !!"<<endl;
     }else if((playSum<dealSum) && dealSum<=21){
         if(dealSum==21){
-            cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time."<<endl;
+            cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time. Unfortunately, you lost $"<<bet<<endl;
         }else
-        cout<<"Nice try, but the dealer has won. Better luck next time."<<endl;
+        cout<<"Nice try, but the dealer has won. Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
         
     }else if((playSum==dealSum) && (playSum<=21) &&(dealSum<=21)){
         if(playSum==21 && dealSum==21){
-            cout<<"You both got blackjack and tied!  You win!"<<endl;
+            cout<<"You both got blackjack and tied!  You win back your original bet of $"<<bet<<" !!"<<endl;
         }else
-        cout<<"You both tied! You win!";
+        cout<<"You both tied! You win back your original bet of $"<<bet<<" !!"<<endl;
     }else if((playSum>21) && (dealSum>21)){
         cout<<"You have both busted! Dealer wins!"<<endl;
     }else if((playSum>21) && (dealSum<=21)){
