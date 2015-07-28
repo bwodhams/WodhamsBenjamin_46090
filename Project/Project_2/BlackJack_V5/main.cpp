@@ -121,7 +121,6 @@ int main(int argc, char** argv) {
     int money=1000; //Starting balance
     int bet; //Bet amount
     int games; //Amount of games user wants to play
-    int netMony=0; //Net amount of money after win/loss
     char playAgn; //User input based on whether or not they want to play again
     
     
@@ -158,7 +157,7 @@ int main(int argc, char** argv) {
 
  //Create do loop to repeat for as long as player wants to play more games    
 do{       
-        cout<<"Your balance is: $"<<money+netMony<<endl;
+        cout<<"Your balance is: $"<<money<<endl;
         cout<<"How much money would you like to bet?"<<endl<<endl;
         cin>>bet;
         cout<<endl;
@@ -172,7 +171,7 @@ do{
         
         //Check if bet is more than the amount of money the player has, or less than $0
         while(bet>money || bet<0){
-           cout<<"Your balance is: $"<<money+netMony<<endl;
+           cout<<"Your balance is: $"<<money<<endl;
            cout<<"How much money would you like to bet?"<<endl;
            cin>>bet;
            cout<<endl;
@@ -186,7 +185,7 @@ do{
         }
     
         //Re=initialize money based on how much user decided to bet
-        money=money-bet;
+        //money=money-bet;
         cout<<"Press enter to continue!"<<endl;
         cout<<endl<<endl;
         cin.get();
@@ -329,41 +328,50 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     if(((playSum>dealSum) || dealSum>21) && playSum<=21){
         if(playSum==21){
             cout<<"Nicely done, you got blackjack!!  You win $"<<bet*2<<" !!"<<endl;
-            netMony=bet*2;
+            money=money+bet;
         }else{
         cout<<"Congrats, you have won the game! You win $"<<bet*2<<" !!"<<endl;
-        netMony=bet*2;
+        money=money+bet;
         }
     }else if((playSum<dealSum) && dealSum<=21){
         if(dealSum==21){
             cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time. Unfortunately, you lost $"<<bet<<endl;
-            netMony=-bet;
+            money=money-bet;
         }else{
         cout<<"Nice try, but the dealer has won. Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        netMony=-bet;
+        money=money-bet;
         }
         
     }else if((playSum==dealSum) && (playSum<=21) &&(dealSum<=21)){
         if(playSum==21 && dealSum==21){
             cout<<"You both got blackjack and tied!  You win back your original bet of $"<<bet<<" !!"<<endl;
-            netMony=bet;
+            money=money;
         }else{
         cout<<"You both tied! You win back your original bet of $"<<bet<<" !!"<<endl;
-        netMony=bet;
+        money=money;
         }
     }else if((playSum>21) && (dealSum>21)){
         cout<<"You have both busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        netMony=-bet;
+        money=money-bet;
     }else if((playSum>21) && (dealSum<=21)){
         cout<<"You have busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        netMony=-bet;
+        money=money-bet;
     }else if((playSum<=21) && (dealSum>21)){
         cout<<"The dealer has busted! You win $"<<bet*2<<" !!"<<endl;
-        netMony=bet*2;
+        money=money+bet;
     }
     cout<<endl<<endl;
-    cout<<"You have a remaining balance of $"<<money+netMony<<" Would you like to play again? (Y/N)"<<endl<<endl;
+    cout<<"You have a remaining balance of $"<<money<<" Would you like to play again? (Y/N)"<<endl<<endl;
     cin>>playAgn;
+    cout<<endl;
+    if(playAgn!='Y' || playAgn!='y' || playAgn!='N' || playAgn!='n'){
+        do{
+            cout<<"Please enter 'Y' or 'y' if you want to continue, or enter 'N' or 'n' if you do not want to continue."<<endl;
+            cout<<endl;
+            cin>>playAgn;
+            cout<<endl;
+        }while(playAgn!='Y' || playAgn!='y' || playAgn!='N' || playAgn!='n');
+    }
     cout<<endl<<endl;
 }while(playAgn=='Y' || playAgn=='y');    
     
