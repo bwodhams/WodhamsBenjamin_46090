@@ -92,15 +92,10 @@ int main(int argc, char** argv) {
     int n=52;
     //OutCard array that fills up with the output of genCard function
     int outCard[n];
-    //Initialize values for ace dealt. Use this to determine which ace is chosen
-    int aceDlt[4]={-1,-1,-1,-1};
-    //Initialize value for aceInput which will active if player draws an Ace
-    int aceInp=0;
     //Initialize value for aceInput for dealer which will activate if dealer draws an ace
     int aceInpD=1;
     int count=0;
     int count1=4;
-    int aceNum=-1;
     //Char to determine if player is ready to play
     char ready;
     //Determine if game is over
@@ -156,7 +151,13 @@ int main(int argc, char** argv) {
     cout<<endl<<endl;
 
  //Create do loop to repeat for as long as player wants to play more games    
-do{       
+do{     
+    
+        //Initialize values for ace dealt. Use this to determine which ace is chosen
+        int aceDlt[4]={-1,-1,-1,-1};
+        //Initialize value for aceInput which will activate if player draws an Ace
+        int aceInp=0;
+        int aceNum=-1;
         cout<<"Your balance is: $"<<money<<endl;
         cout<<"How much money would you like to bet?"<<endl<<endl;
         cin>>bet;
@@ -361,20 +362,23 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         money=money+bet;
     }
     cout<<endl<<endl;
-    cout<<"You have a remaining balance of $"<<money<<" Would you like to play again? (Y/N)"<<endl<<endl;
-    cin>>playAgn;
-    cout<<playAgn<<endl;
-    cout<<endl;
-    if(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n'){
-        do{
-            cout<<"Please enter 'Y' or 'y' if you want to continue, or enter 'N' or 'n' if you do not want to continue."<<endl;
-            cout<<endl;
-            cin>>playAgn;
-            cout<<endl;
-        }while(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n');
+    if(money>0){
+             cout<<"You have a remaining balance of $"<<money<<" Would you like to play again? (Y/N)"<<endl<<endl;
+             cin>>playAgn;
+             cout<<endl;
+        if(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n'){
+            do{
+                cout<<"Please enter 'Y' or 'y' if you want to continue, or enter 'N' or 'n' if you do not want to continue."<<endl;
+                cout<<endl;
+                cin>>playAgn;
+                cout<<endl;
+            }while(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n');
+        }
+    }else{
+        cout<<"You don't have any money left. You may not play anymore!"<<endl;
     }
     cout<<endl<<endl;
-}while(playAgn=='Y' || playAgn=='y');    
+}while((playAgn=='Y' || playAgn=='y') && money>0);    
 cout<<endl<<endl;
 cout<<"Thank you for playing!"<<endl;
    
@@ -399,7 +403,7 @@ void genCard(int outCard[], int n){
     21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,
     42,43,44,45,46,47,48,49,50,51,52}; //Create the 52 cards in the deck
     
-    outCard[52] = {};
+    outCard[52];
     //Set random seed
     
     //Shuffle the deck
