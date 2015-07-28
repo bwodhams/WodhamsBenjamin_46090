@@ -363,18 +363,20 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     cout<<endl<<endl;
     cout<<"You have a remaining balance of $"<<money<<" Would you like to play again? (Y/N)"<<endl<<endl;
     cin>>playAgn;
+    cout<<playAgn<<endl;
     cout<<endl;
-    if(playAgn!='Y' || playAgn!='y' || playAgn!='N' || playAgn!='n'){
+    if(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n'){
         do{
             cout<<"Please enter 'Y' or 'y' if you want to continue, or enter 'N' or 'n' if you do not want to continue."<<endl;
             cout<<endl;
             cin>>playAgn;
             cout<<endl;
-        }while(playAgn!='Y' || playAgn!='y' || playAgn!='N' || playAgn!='n');
+        }while(playAgn!='Y' && playAgn!='y' && playAgn!='N' && playAgn!='n');
     }
     cout<<endl<<endl;
 }while(playAgn=='Y' || playAgn=='y');    
-    
+cout<<endl<<endl;
+cout<<"Thank you for playing!"<<endl;
    
     //Exit stage right!
 
