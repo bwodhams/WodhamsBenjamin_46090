@@ -9,10 +9,6 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
-#include <windows.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include <curses.h>
 
 using namespace std;
 
@@ -24,7 +20,7 @@ using namespace std;
 
 //Execution Begins Here!
 void genCard(int [], int);
-void clrScrn(char);
+char clrScrn(char);
 
 
 
@@ -121,8 +117,7 @@ int main(int argc, char** argv) {
     int bet; //Bet amount
     int games; //Amount of games user wants to play
     char playAgn; //User input based on whether or not they want to play again
-    char clrScr; //User input based on whether or not they want to clear the screen
-    int tempTst=5;
+    char clrScr='Y'; //User input based on whether or not they want to clear the screen
     
     
     //Introduce user to the game
@@ -158,7 +153,9 @@ int main(int argc, char** argv) {
 
  //Create do loop to repeat for as long as player wants to play more games    
 do{     
-    
+        if(clrScr=='Y' || clrScr=='y'){
+           system("clear"); 
+        }
         //Initialize values for ace dealt. Use this to determine which ace is chosen
         int aceDlt[4]={-1,-1,-1,-1};
         //Initialize value for aceInput which will activate if player draws an Ace
@@ -201,6 +198,7 @@ do{
     genCard(outCard, n);
     
     clrScrn(clrScr);
+    clrScrn;
     
       
     //Give initial cards to Player and Dealer
@@ -249,9 +247,6 @@ do{
             cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
             count1++;
-            cout<<"Temporary Test: "<<tempTst<<endl;
-            tempTst++;
-            cout<<outCard[51]<<endl;
             
             
         }else if(hitStay =='S' || hitStay=='s'){
@@ -396,7 +391,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         cin>>clrScr;
         cout<<endl<<endl;
         if(clrScr=='Y' || clrScr=='y'){
-            //cout << string( 1000, '\n' );
+            
         }
             if(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n'){
                 do{
@@ -405,7 +400,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
                     cin>>clrScr;
                     cout<<endl;
                     if(clrScr=='Y' || clrScr=='y'){
-                        //cout << string( 100, '\n' );
+                        
                     }
                 }while(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n');
         }
@@ -456,9 +451,10 @@ void genCard(int outCard[], int n){
 
 
 
-void clrScrn(char clrScr){
+char clrScrn(char clrScr){
+    clrScr='y';
     if(clrScr=='Y' || clrScr=='y'){
-       cout << string( 100, '\n' );
+       system("clear");
     }
     
 }
