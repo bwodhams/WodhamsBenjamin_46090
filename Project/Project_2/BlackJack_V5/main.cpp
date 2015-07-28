@@ -2,7 +2,7 @@
  * File:   main.cpp
  * Author: Benjamin Wodhams
  * Created on July 27, 2015, 7:50 PM
- * Purpose: BlackJack V_4
+ * Purpose: BlackJack V_5
  */
 //System Libraries
 #include <iostream>
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
     int aceCard[4]={0,13,26,39};
     int n=52;
     //OutCard array that fills up with the output of genCard function
-    int outCard[n]={};
+    int outCard[n];
     //Initialize values for ace dealt. Use this to determine which ace is chosen
     int aceDlt[4]={-1,-1,-1,-1};
     //Initialize value for aceInput which will active if player draws an Ace
@@ -115,12 +115,13 @@ int main(int argc, char** argv) {
     int playSum;
     int pCCount=0;
     int dCCount=0;
-    int playCrd[n]={};
-    int dealCrd[n]={};
+    int playCrd[n];
+    int dealCrd[n];
     int dltCard=-1;
     int money=1000; //Starting balance
     int bet; //Bet amount
-    
+    int games; //Amount of games user wants to play
+    int netMony=0; //Net amount of money after win/loss
     
     
     //Introduce user to the game
@@ -154,9 +155,33 @@ int main(int argc, char** argv) {
     }
     cout<<endl<<endl;
     
-    cout<<"Your starting balance is: $"<<money<<endl;
-    cout<<"How much money would you like to bet?"<<endl;
-    cin>>bet;
+       
+        cout<<"Your balance is: $"<<money+netMony<<endl;
+        cout<<"How much money would you like to bet?"<<endl<<endl;
+        cin>>bet;
+        cout<<endl;
+        if(bet>money){
+           cout<<"You can't bet more money than you have!"<<endl<<endl;
+        }else if(bet<0){
+           cout<<"You can't bet a negative amount of money!"<<endl<<endl;
+        }else if(bet==0){
+           cout<<"Luckily for you, free games are allowed!"<<endl;
+        }
+        
+        
+        do{
+           cout<<"Your balance is: $"<<money+netMony<<endl;
+           cout<<"How much money would you like to bet?"<<endl;
+           cin>>bet;
+           cout<<endl;
+           if(bet>money){
+           cout<<"You can't bet more money than you have!"<<endl<<endl;
+           }else if(bet<0){
+           cout<<"You can't bet a negative amount of money!"<<endl<<endl;
+           }else if(bet==0){
+           cout<<"Luckily for you, free games are allowed!"<<endl;
+           }
+        }while(bet>money || bet<0);
     
     
     //Initialize Function genCard in main
