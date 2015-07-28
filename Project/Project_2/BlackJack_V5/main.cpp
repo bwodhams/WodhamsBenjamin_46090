@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <windows.h>
 
 using namespace std;
 
@@ -117,6 +118,7 @@ int main(int argc, char** argv) {
     int bet; //Bet amount
     int games; //Amount of games user wants to play
     char playAgn; //User input based on whether or not they want to play again
+    char clrScr; //User input based on whether or not they want to clear the screen
     
     
     //Introduce user to the game
@@ -378,6 +380,23 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         cout<<"You don't have any money left. You may not play anymore!"<<endl;
     }
     cout<<endl<<endl;
+    if(playAgn=='Y' || playAgn=='y'){
+        cout<<"Would you like to clear the screen? (Y/N)"<<endl;
+        cout<<endl;
+        cin>>clrScr;
+        cout<<endl<<endl;
+        if(clrScr=='Y' || clrScr=='y'){
+            system("CLS");
+        }
+            if(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n'){
+                do{
+                    cout<<"Please enter 'Y' or 'y' if you want to clear the screen, or enter 'N' or 'n' if you do not want to clear the screen."<<endl;
+                    cout<<endl;
+                    cin>>clrScr;
+                    cout<<endl;
+                }while(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n');
+        }
+    }
 }while((playAgn=='Y' || playAgn=='y') && money>0);    
 cout<<endl<<endl;
 cout<<"Thank you for playing!"<<endl;
