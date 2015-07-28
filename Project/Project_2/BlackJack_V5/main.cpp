@@ -311,11 +311,11 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         }else
         cout<<"You both tied! You win back your original bet of $"<<bet<<" !!"<<endl;
     }else if((playSum>21) && (dealSum>21)){
-        cout<<"You have both busted! Dealer wins!"<<endl;
+        cout<<"You have both busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
     }else if((playSum>21) && (dealSum<=21)){
-        cout<<"You have busted! Dealer wins!"<<endl;
+        cout<<"You have busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
     }else if((playSum<=21) && (dealSum>21)){
-        cout<<"You have won, the dealer busted!"<<endl;
+        cout<<"The dealer has busted! You win $"<<bet*2<<" !!"<<endl;
     }
     
     
