@@ -10,6 +10,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <windows.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -119,6 +121,7 @@ int main(int argc, char** argv) {
     int games; //Amount of games user wants to play
     char playAgn; //User input based on whether or not they want to play again
     char clrScr; //User input based on whether or not they want to clear the screen
+    int tempTst=5;
     
     
     //Introduce user to the game
@@ -243,6 +246,10 @@ do{
             cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
             count1++;
+            cout<<"Temporary Test: "<<tempTst<<endl;
+            tempTst++;
+            cout<<outCard[51]<<endl;
+            
             
         }else if(hitStay =='S' || hitStay=='s'){
             cout<<"You have requested to stay."<<endl;
@@ -386,7 +393,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         cin>>clrScr;
         cout<<endl<<endl;
         if(clrScr=='Y' || clrScr=='y'){
-            system("CLS");
+            system("clear");
         }
             if(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n'){
                 do{
@@ -394,6 +401,9 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
                     cout<<endl;
                     cin>>clrScr;
                     cout<<endl;
+                    if(clrScr=='Y' || clrScr=='y'){
+                                    system("clear");
+                    }
                 }while(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n');
         }
     }
@@ -418,9 +428,9 @@ cout<<"Thank you for playing!"<<endl;
  *******************************************************************************************************
  */
 void genCard(int outCard[], int n){
-    int p[52]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+    int p[52]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
     21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,
-    42,43,44,45,46,47,48,49,50,51,52}; //Create the 52 cards in the deck
+    42,43,44,45,46,47,48,49,50,51}; //Create the 52 cards in the deck
     
     outCard[52];
     //Set random seed
