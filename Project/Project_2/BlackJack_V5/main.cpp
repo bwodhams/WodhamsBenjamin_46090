@@ -20,8 +20,6 @@ using namespace std;
 
 //Execution Begins Here!
 void genCard(int [], int);
-char clrScrn(char);
-
 
 
 int main(int argc, char** argv) {
@@ -117,7 +115,7 @@ int main(int argc, char** argv) {
     int bet; //Bet amount
     int games; //Amount of games user wants to play
     char playAgn; //User input based on whether or not they want to play again
-    char clrScr='Y'; //User input based on whether or not they want to clear the screen
+    char clrScr; //User input based on whether or not they want to clear the screen
     
     
     //Introduce user to the game
@@ -150,12 +148,11 @@ int main(int argc, char** argv) {
         return 0;
     }
     cout<<endl<<endl;
+    
 
  //Create do loop to repeat for as long as player wants to play more games    
 do{     
-        if(clrScr=='Y' || clrScr=='y'){
-           system("clear"); 
-        }
+
         //Initialize values for ace dealt. Use this to determine which ace is chosen
         int aceDlt[4]={-1,-1,-1,-1};
         //Initialize value for aceInput which will activate if player draws an Ace
@@ -197,8 +194,6 @@ do{
     //Initialize Function genCard in main
     genCard(outCard, n);
     
-    clrScrn(clrScr);
-    clrScrn;
     
       
     //Give initial cards to Player and Dealer
@@ -391,7 +386,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         cin>>clrScr;
         cout<<endl<<endl;
         if(clrScr=='Y' || clrScr=='y'){
-            
+           system("clear"); 
         }
             if(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n'){
                 do{
@@ -400,7 +395,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
                     cin>>clrScr;
                     cout<<endl;
                     if(clrScr=='Y' || clrScr=='y'){
-                        
+                       system("clear");  
                     }
                 }while(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n');
         }
@@ -445,19 +440,4 @@ void genCard(int outCard[], int n){
         outCard[k]=p[k];
       
     }
-}
-
-
-
-
-
-char clrScrn(char clrScr){
-    clrScr='y';
-    if(clrScr=='Y' || clrScr=='y'){
-       system("clear");
-    }
-    
-}
-
-
-   
+}  
