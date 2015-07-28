@@ -122,7 +122,7 @@ int main(int argc, char** argv) {
     int bet; //Bet amount
     int games; //Amount of games user wants to play
     int netMony=0; //Net amount of money after win/loss
-    int playAgn; //User input based on whether or not they want to play again
+    int playAgn='Y'; //User input based on whether or not they want to play again
     
     
     //Introduce user to the game
@@ -156,7 +156,7 @@ int main(int argc, char** argv) {
     }
     cout<<endl<<endl;
     
-while       
+while(playAgn=='Y' || playAgn=='y'){       
         cout<<"Your balance is: $"<<money+netMony<<endl;
         cout<<"How much money would you like to bet?"<<endl<<endl;
         cin>>bet;
@@ -345,7 +345,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     }else if((playSum<=21) && (dealSum>21)){
         cout<<"The dealer has busted! You win $"<<bet*2<<" !!"<<endl;
     }
-    
+}    
     
    
 
