@@ -122,6 +122,7 @@ int main(int argc, char** argv) {
     int bet; //Bet amount
     int games; //Amount of games user wants to play
     int netMony=0; //Net amount of money after win/loss
+    int playAgn; //User input based on whether or not they want to play again
     
     
     //Introduce user to the game
@@ -155,7 +156,7 @@ int main(int argc, char** argv) {
     }
     cout<<endl<<endl;
     
-       
+while       
         cout<<"Your balance is: $"<<money+netMony<<endl;
         cout<<"How much money would you like to bet?"<<endl<<endl;
         cin>>bet;
@@ -169,7 +170,7 @@ int main(int argc, char** argv) {
         }
         
         
-        do{
+        while(bet>money || bet<0){
            cout<<"Your balance is: $"<<money+netMony<<endl;
            cout<<"How much money would you like to bet?"<<endl;
            cin>>bet;
@@ -181,9 +182,11 @@ int main(int argc, char** argv) {
            }else if(bet==0){
            cout<<"Luckily for you, free games are allowed!"<<endl;
            }
-        }while(bet>money || bet<0);
+        }
     
-    
+        cout<<"Press enter to continue!"<<endl;
+        cin.get();
+        cin.ignore();
     //Initialize Function genCard in main
     genCard(outCard, n);
     
