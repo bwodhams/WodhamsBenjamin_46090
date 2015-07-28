@@ -12,6 +12,7 @@
 #include <windows.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include <curses.h>
 
 using namespace std;
 
@@ -23,11 +24,11 @@ using namespace std;
 
 //Execution Begins Here!
 void genCard(int [], int);
+void clrScrn(char);
 
 
 
 int main(int argc, char** argv) {
-     
     srand(static_cast<unsigned int>(time(0)));
 
     //Declare Variables
@@ -198,6 +199,8 @@ do{
         cin.ignore();
     //Initialize Function genCard in main
     genCard(outCard, n);
+    
+    clrScrn(clrScr);
     
       
     //Give initial cards to Player and Dealer
@@ -393,7 +396,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
         cin>>clrScr;
         cout<<endl<<endl;
         if(clrScr=='Y' || clrScr=='y'){
-            system("clear");
+            //cout << string( 1000, '\n' );
         }
             if(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n'){
                 do{
@@ -402,7 +405,7 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
                     cin>>clrScr;
                     cout<<endl;
                     if(clrScr=='Y' || clrScr=='y'){
-                                    system("clear");
+                        //cout << string( 100, '\n' );
                     }
                 }while(clrScr!='Y' && clrScr!='y' && clrScr!='N' && clrScr!='n');
         }
@@ -447,6 +450,17 @@ void genCard(int outCard[], int n){
         outCard[k]=p[k];
       
     }
+}
+
+
+
+
+
+void clrScrn(char clrScr){
+    if(clrScr=='Y' || clrScr=='y'){
+       cout << string( 100, '\n' );
+    }
+    
 }
 
 
