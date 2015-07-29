@@ -97,8 +97,6 @@ int main(int argc, char** argv) {
     int count1=4;
     //Char to determine if player is ready to play
     char ready;
-    //Determine if game is over
-    bool gmOver=false;
     //Count cards
     int crdCnt=0;
     //Char to determine if player wants to hit or stay
@@ -107,11 +105,11 @@ int main(int argc, char** argv) {
     int dealSum;
     //Calculate Player's sum of all cards
     int playSum;
-    int pCCount=0;
-    int dCCount=0;
-    int playCrd[n];
-    int dealCrd[n];
-    int dltCard=-1;
+    int pCCount=0; //Player's cards count
+    int dCCount=0; //Dealer's cards count
+    int playCrd[n]; //Player's cards array
+    int dealCrd[n]; //Dealer's cards array
+    int dltCard=-1; //Dealt card
     int money=1000; //Starting balance
     int bet; //Bet amount
     int games; //Amount of games user wants to play
@@ -137,11 +135,14 @@ int main(int argc, char** argv) {
     while(getline(inFile,instruc)){
         cout<<instruc<<endl;
     }
+    
+    //After instructions are given, ask player if they are ready to play!
     cout<<endl<<endl;
     cout<<"Are you ready to play a game? Y/N"<<endl;
     cin>>ready;
     cout<<endl;
     
+    //Continuation depends on player's input
     if(ready=='Y' || ready=='y'){
         cout<<"Good luck, and may the odds be ever in your favor!"<<endl;
     }else{
@@ -151,7 +152,7 @@ int main(int argc, char** argv) {
     cout<<endl<<endl;
     
 
- //Create do loop to repeat for as long as player wants to play more games    
+ //Create do loop to repeat for as long as player wants to play more games AND has more than $0 balance remaining    
 do{     
 
             //Initialize values for ace dealt. Use this to determine which ace is chosen
@@ -207,6 +208,8 @@ do{
         playCrd[pCCount]=outCard[2];
         dCCount++;
         dealCrd[dCCount]=outCard[3];
+        
+        //Output the cards to show player
         cout<<"           Player           "<<endl;
         cout<<setw(20)<<fceCard[playCrd[0]]<<setw(15)<<"("<<crdValu[playCrd[0]]<<") points"<<endl;
 
@@ -241,6 +244,7 @@ do{
                 cout<<setw(20)<<fceCard[outCard[i]]<<setw(15)<<"("<<crdValu[outCard[i]]<<") points"<<endl;
                 cout<<endl;
                 playSum+=crdValu[outCard[i]];
+                //If player busts, or hits blackjack, don't allow them to hit or stay
                 if(playSum>21 || playSum==21){
                     break;
                 }
@@ -288,7 +292,10 @@ do{
         while(aceInp==0 && count<4){
             for(int i=3; i>=0; i--)
             {   count++;
-                if(aceDlt[i]!= -1)
+            if(aceDlt[i]!= -1 && playSum==21){
+                cout<<"You already have BlackJack, so the value of your "<<fceCard[aceDlt[i]]<<" will be 1."<<endl;
+            }
+                if(aceDlt[i]!= -1 && playSum!=21)
                 {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
                 count=4;
                 aceNum=aceDlt[i];
@@ -309,7 +316,7 @@ do{
             }
 
 
-
+        //Initialize variable z so that dealer doesn't draw same cards as player
         int z=count1;
 
         //Calculate dealer's sum to determine if it will hit or stay    
@@ -502,6 +509,9 @@ if(money>1000){
 if(money<1000){
     cout<<"As a result, you have lost $"<<1000-money<<" and have decided to stop playing with a balance of $"<<money<<"  Better luck next time."<<endl;
 }
+
+cout<<endl<<endl;
+cout<<"You may also find your results stored in the file called : results.txt."<<endl<<endl;
 
 
       ofstream outFile;
