@@ -168,7 +168,7 @@ do{
         }else if(bet<0){
            cout<<"You can't bet a negative amount of money!"<<endl<<endl;
         }else if(bet==0){
-           cout<<"Luckily for you, free games are allowed!"<<endl;
+           cout<<"Luckily for you, free games are allowed!"<<endl<<endl;
         }
         
         //Check if bet is more than the amount of money the player has, or less than $0
@@ -240,9 +240,13 @@ do{
             cout<<"You requested another card, here is your card."<<endl;
             cout<<setw(20)<<fceCard[outCard[i]]<<setw(15)<<"("<<crdValu[outCard[i]]<<") points"<<endl;
             cout<<endl;
-            cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             playSum+=crdValu[outCard[i]];
+            if(playSum>21 || playSum==21){
+                break;
+            }
+            cout<<"Would you like to Hit or Stay?  H/S"<<endl;
             count1++;
+            
             
             
         }else if(hitStay =='S' || hitStay=='s'){
@@ -315,13 +319,15 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
             cout<<setw(20)<<fceCard[outCard[z]]<<setw(15)<<" ("<<crdValu[outCard[z]]<<") points"<<endl;
             cout<<endl;
             dealSum+=crdValu[outCard[z]];
-             if(dealSum>=17){
+            if(dealSum>=17){
                 break;
             }
         }
-        }if(dealSum>=17){
-        cout<<"Dealer will stay."<<endl;
-     }
+    }if(dealSum>=17 && dealSum<=21){
+            cout<<"Dealer will stay."<<endl;
+    }if(dealSum>21){
+            cout<<"Dealer busted!"<<endl;
+    }
     //Output dealer's hidden card as well as player and dealer total sum
     cout<<setw(70)<<"The dealer's hidden card was : "<<fceCard[outCard[3]]<<endl;
     cout<<endl<<endl;
@@ -368,41 +374,46 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     }
     
     //Setup output for win/loss if bet is > $0  (If player played a free game)
-    if(((playSum>dealSum) || dealSum>21) && playSum<=21){
-        if(playSum==21){
-            cout<<"Nicely done, you got blackjack!!  You win $"<<bet*2<<" !!"<<endl;
+    if(bet>0){
+        if(((playSum>dealSum) || dealSum>21) && playSum<=21){
+            if(playSum==21){
+                cout<<"Nicely done, you got blackjack!!  You win $"<<bet*2<<" !!"<<endl;
+                money=money+bet;
+            }else{
+            cout<<"Congrats, you have won the game! You win $"<<bet*2<<" !!"<<endl;
             money=money+bet;
-        }else{
-        cout<<"Congrats, you have won the game! You win $"<<bet*2<<" !!"<<endl;
-        money=money+bet;
-        }
-    }else if((playSum<dealSum) && dealSum<=21){
-        if(dealSum==21){
-            cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time. Unfortunately, you lost $"<<bet<<endl;
+            }
+        }else if((playSum<dealSum) && dealSum<=21){
+            if(dealSum==21){
+                cout<<"Nice try, but the dealer has won and got blackjack. Better luck next time. Unfortunately, you lost $"<<bet<<endl;
+                money=money-bet;
+            }else{
+            cout<<"Nice try, but the dealer has won. Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
             money=money-bet;
-        }else{
-        cout<<"Nice try, but the dealer has won. Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        money=money-bet;
-        }
-        
-    }else if((playSum==dealSum) && (playSum<=21) &&(dealSum<=21)){
-        if(playSum==21 && dealSum==21){
-            cout<<"You both got blackjack and tied!  You win back your original bet of $"<<bet<<" !!"<<endl;
+            }
+
+        }else if((playSum==dealSum) && (playSum<=21) &&(dealSum<=21)){
+            if(playSum==21 && dealSum==21){
+                cout<<"You both got blackjack and tied!  You win back your original bet of $"<<bet<<" !!"<<endl;
+                money=money;
+            }else{
+            cout<<"You both tied! You win back your original bet of $"<<bet<<" !!"<<endl;
             money=money;
-        }else{
-        cout<<"You both tied! You win back your original bet of $"<<bet<<" !!"<<endl;
-        money=money;
+            }
+        }else if((playSum>21) && (dealSum>21)){
+            cout<<"You have both busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
+            money=money-bet;
+        }else if((playSum>21) && (dealSum<=21)){
+            cout<<"You have busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
+            money=money-bet;
+        }else if((playSum<=21) && (dealSum>21)){
+            cout<<"The dealer has busted! You win $"<<bet*2<<" !!"<<endl;
+            money=money+bet;
         }
-    }else if((playSum>21) && (dealSum>21)){
-        cout<<"You have both busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        money=money-bet;
-    }else if((playSum>21) && (dealSum<=21)){
-        cout<<"You have busted! Dealer wins! Unfortunately, you lost $"<<bet<<" Better luck next time."<<endl;
-        money=money-bet;
-    }else if((playSum<=21) && (dealSum>21)){
-        cout<<"The dealer has busted! You win $"<<bet*2<<" !!"<<endl;
-        money=money+bet;
     }
+    
+    //Re-initialize playAgn
+    playAgn='A';
     cout<<endl<<endl;
     if(money>0){
              cout<<"You have a remaining balance of $"<<money<<" Would you like to play again? (Y/N)"<<endl<<endl;
