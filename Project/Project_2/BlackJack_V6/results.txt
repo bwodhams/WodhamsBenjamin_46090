@@ -1,7 +1,7 @@
-Here are your final results! You played a total of 2 game(s) 
+Here are your final results! You played a total of 1 game(s) 
 
-You won 2 game(s), lost 0 game(s), and tied 0 game(s). 
+You won 0 game(s), lost 0 game(s), and tied 0 game(s). 
 
-You won 0 free game(s), lost 0 free game(s), and tied 0 game(s).
+You won 0 free game(s), lost 1 free game(s), and tied 0 game(s).
 
-As a result, you profited $2000 and have decided to stop playing with a balance of $3000
+As a result, you profited $0 and have decided to stop playing leaving you with your initial investment of $1000

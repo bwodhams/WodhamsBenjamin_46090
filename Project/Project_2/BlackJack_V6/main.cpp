@@ -509,6 +509,9 @@ if(money>1000){
 if(money<1000){
     cout<<"As a result, you have lost $"<<1000-money<<" and have decided to stop playing with a balance of $"<<money<<"  Better luck next time."<<endl;
 }
+if(money==1000){
+    cout<<"As a result, you profited $"<<money-1000<<" and have decided to stop playing leaving you with your initial investment of $"<<money<<endl;
+}
 
 cout<<endl<<endl;
 cout<<"You may also find your results stored in the file called : results.txt."<<endl<<endl;
@@ -523,6 +526,9 @@ cout<<"You may also find your results stored in the file called : results.txt."<
         }
         if(money<1000){
             outFile<<"As a result, you have lost $"<<1000-money<<" and have decided to stop playing with a balance of $"<<money<<"  Better luck next time."<<endl;
+        }
+        if(money==1000){
+            outFile<<"As a result, you profited $"<<money-1000<<" and have decided to stop playing leaving you with your initial investment of $"<<money<<endl;
         }
      outFile.close();  
       
