@@ -1,0 +1,7 @@
+Here are your final results! You played a total of 3 game(s) 
+
+You won 1 game(s), lost 1 game(s), and tied 1 game(s). 
+
+You won 0 free game(s), lost 0 free game(s), and tied 0 game(s).
+
+As a result, you have lost $1000 and have decided to stop playing with a balance of $0  Better luck next time.

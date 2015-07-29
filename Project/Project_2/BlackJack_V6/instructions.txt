@@ -1,0 +1,20 @@
+In this game, you are playing against the computer. The objective is to get to 21 
+or as close to it as possible. If you get 21, you automatically win. 
+If you go past 21, you lose, and if you don't reach 21, who ever 
+has the higher number wins.
+The value of each card is listed below
+    ////////////////////////////////////////
+    ////          Ace = 1 or 11         ////
+    ////            2 = 2               ////
+    ////            3 = 3               ////
+    ////            4 = 4               ////
+    ////            5 = 5               ////
+    ////            6 = 6               ////
+    ////            7 = 7               ////
+    ////            8 = 8               ////
+    ////            9 = 9               ////
+    ////           10 = 10              ////
+    ////         Jack = 10              ////
+    ////        Queen = 10              ////
+    ////         King = 10              ////
+    ////////////////////////////////////////

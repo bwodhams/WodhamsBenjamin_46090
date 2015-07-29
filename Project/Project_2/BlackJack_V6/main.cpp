@@ -127,6 +127,16 @@ int main(int argc, char** argv) {
     int tieCouf=0; //Count for number of ties for bets = to 0
     
     //Introduce user to the game
+    ifstream inFile;
+    inFile.open("instructions.txt");
+    string instruc;
+    int fcount=0; //File counter
+    
+    //Read file until you've reached the end
+    while(inFile>>instruc){
+        cout<<instruc<<" ";
+    }
+    //cout<<instruc<<endl;
     cout<<"Welcome to the game of BlackJack!"<<endl;
     cout<<"In this game, you are playing against the computer. The objective is to get to 21 \nor as close to it as possible. If you get 21, you automatically win. \nIf you go past 21, you lose, and if you don't reach 21, who ever \nhas the higher number wins."<<endl;
     cout<<"The value of each card is listed below"<<endl;
@@ -507,8 +517,23 @@ if(money>1000){
     cout<<"As a result, you profited $"<<money-1000<<" and have decided to stop playing with a balance of $"<<money<<endl;
 }
 if(money<1000){
-    cout<<"As a result, you have lost $"<<1000-money<<"  Better luck next time."<<endl;
+    cout<<"As a result, you have lost $"<<1000-money<<" and have decided to stop playing with a balance of $"<<money<<"  Better luck next time."<<endl;
 }
+
+
+      ofstream outFile;
+      outFile.open("results.txt");
+        outFile<<"Here are your final results! You played a total of "<<winCou+losCou+tieCou+winCouf+losCouf+tieCouf<<" game(s) \n\nYou won "<<winCou<<" game(s), lost "<<losCou<<" game(s), and tied "<<tieCou<<" game(s). \n\nYou won "<<winCouf<<" free game(s), lost "<<losCouf<<" free game(s), and tied "<<tieCouf<<" game(s)."<<endl;
+        outFile<<endl;
+        if(money>1000){
+            outFile<<"As a result, you profited $"<<money-1000<<" and have decided to stop playing with a balance of $"<<money<<endl;
+        }
+        if(money<1000){
+            outFile<<"As a result, you have lost $"<<1000-money<<" and have decided to stop playing with a balance of $"<<money<<"  Better luck next time."<<endl;
+        }
+     outFile.close();  
+      
+
 
 cout<<endl<<endl;
 cout<<"Thank you for playing!"<<endl;
