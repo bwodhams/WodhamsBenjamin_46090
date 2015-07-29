@@ -125,36 +125,19 @@ int main(int argc, char** argv) {
     int losCouf=0; //Count for number of losses for bets = to 0
     int tieCou=0; //Count for number of ties for bets greater than 0
     int tieCouf=0; //Count for number of ties for bets = to 0
+
     
-    //Introduce user to the game
+    //Open instructions file to introduce user to the game
     ifstream inFile;
     inFile.open("instructions.txt");
     string instruc;
     int fcount=0; //File counter
     
-    //Read file until you've reached the end
-    while(inFile>>instruc){
-        cout<<instruc<<" ";
+    //Output instructions file line by line
+    while(getline(inFile,instruc)){
+        cout<<instruc<<endl;
     }
-    //cout<<instruc<<endl;
-    cout<<"Welcome to the game of BlackJack!"<<endl;
-    cout<<"In this game, you are playing against the computer. The objective is to get to 21 \nor as close to it as possible. If you get 21, you automatically win. \nIf you go past 21, you lose, and if you don't reach 21, who ever \nhas the higher number wins."<<endl;
-    cout<<"The value of each card is listed below"<<endl;
-    cout<<"    ////////////////////////////////////////\n"
-          "    ////          Ace = 1 or 11         ////\n"
-          "    ////            2 = 2               ////\n"
-          "    ////            3 = 3               ////\n"
-          "    ////            4 = 4               ////\n"
-          "    ////            5 = 5               ////\n"
-          "    ////            6 = 6               ////\n"
-          "    ////            7 = 7               ////\n"
-          "    ////            8 = 8               ////\n"
-          "    ////            9 = 9               ////\n"
-          "    ////           10 = 10              ////\n"
-          "    ////         Jack = 10              ////\n"
-          "    ////        Queen = 10              ////\n"
-          "    ////         King = 10              ////\n"
-          "    ////////////////////////////////////////\n"<<endl;
+    cout<<endl<<endl;
     cout<<"Are you ready to play a game? Y/N"<<endl;
     cin>>ready;
     cout<<endl;

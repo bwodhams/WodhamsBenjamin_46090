@@ -1,4 +1,4 @@
-In this game, you are playing against the computer. The objective is to get to 21 
+In this game, you are playing against the computer. The objective is to get to 21
 or as close to it as possible. If you get 21, you automatically win. 
 If you go past 21, you lose, and if you don't reach 21, who ever 
 has the higher number wins.
