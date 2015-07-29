@@ -328,7 +328,46 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     cout<<"Your cards total : "<<playSum<<" points."<<setw(40)<<"The dealer's cards total : "<<dealSum<<" points."<<endl;
     cout<<endl;
     
+    //Setup output for win/loss if bet is $0  (If player played a free game)
+    if(bet==0){ 
+        if(((playSum>dealSum) || dealSum>21) && playSum<=21){
+            if(playSum==21){
+                cout<<"Nicely done, you got blackjack!!  Since you were playing a free game, you win nothing!"<<endl;
+                money=money+bet;
+            }else{
+            cout<<"Congrats, you have won the game! Since you were playing a free game, you win nothing!"<<endl;
+            money=money+bet;
+            }
+        }else if((playSum<dealSum) && dealSum<=21){
+            if(dealSum==21){
+                cout<<"Nice try, but the dealer has won and got blackjack. Since you were playing a free game, you lose nothing!"<<endl;
+                money=money-bet;
+            }else{
+            cout<<"Nice try, but the dealer has won. Since you were playing a free game, you lose nothing!"<<endl;
+            money=money-bet;
+            }
+
+        }else if((playSum==dealSum) && (playSum<=21) &&(dealSum<=21)){
+            if(playSum==21 && dealSum==21){
+                cout<<"You both got blackjack and tied!  Since you were playing a free game, you win nothing!"<<endl;
+                money=money;
+            }else{
+            cout<<"You both tied! Since you were playing a free game, you win nothing!"<<endl;
+            money=money;
+            }
+        }else if((playSum>21) && (dealSum>21)){
+            cout<<"You have both busted! Dealer wins! Since you were playing a free game, you lose nothing!"<<endl;
+            money=money-bet;
+        }else if((playSum>21) && (dealSum<=21)){
+            cout<<"You have busted! Dealer wins! Since you were playing a free game, you lose nothing!"<<endl;
+            money=money-bet;
+        }else if((playSum<=21) && (dealSum>21)){
+            cout<<"The dealer has busted! Since you were playing a free game, you win nothing!"<<endl;
+            money=money+bet;
+        }
+    }
     
+    //Setup output for win/loss if bet is > $0  (If player played a free game)
     if(((playSum>dealSum) || dealSum>21) && playSum<=21){
         if(playSum==21){
             cout<<"Nicely done, you got blackjack!!  You win $"<<bet*2<<" !!"<<endl;
@@ -382,7 +421,9 @@ for(int iPcard=0; iPcard<=pCCount; iPcard++){
     }
     cout<<endl<<endl;
     if(playAgn=='Y' || playAgn=='y'){
-        cout<<"Would you like to clear the screen? (Y/N)"<<endl;
+        //Re-initialize clrScr
+        clrScr='A';
+        cout<<"Would you like to clear the screen? (Y/N) **NOTE** If you are using \nNetBeans IDE 8.0 or newer, you can't clear screen, so just enter 'N' or 'n'."<<endl;
         cout<<endl;
         cin>>clrScr;
         cout<<endl<<endl;
@@ -442,3 +483,4 @@ void genCard(int outCard[], int n){
       
     }
 }  
+
