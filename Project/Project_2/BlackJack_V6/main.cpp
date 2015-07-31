@@ -182,8 +182,6 @@ do{
                cout<<"You can't bet more money than you have!"<<endl<<endl;
                }else if(bet<0){
                cout<<"You can't bet a negative amount of money!"<<endl<<endl;
-               }else if(bet==0){
-               cout<<"Luckily for you, free games are allowed!"<<endl;
                }
             }
 
@@ -292,9 +290,9 @@ do{
         while(aceInp==0 && count<4){
             for(int i=3; i>=0; i--)
             {   count++;
-            if(aceDlt[i]!= -1 && playSum==21){
-                cout<<"You already have BlackJack, so the value of your "<<fceCard[aceDlt[i]]<<" will be 1."<<endl;
-            }
+                if(aceDlt[i]!= -1 && playSum==21){
+                    cout<<"You already have BlackJack, so the value of your "<<fceCard[aceDlt[i]]<<" will be 1."<<endl;
+                }
                 if(aceDlt[i]!= -1 && playSum!=21)
                 {cout<<"What value would you like to use for your "<<fceCard[aceDlt[i]]<<", (1 or 11)"<<endl;
                 count=4;
